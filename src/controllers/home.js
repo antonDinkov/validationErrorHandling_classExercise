@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     res.render('home');
 });
 
-router.post('/', body('email').isEmail(), (req, res) => {
+router.post('/', body('email').isEmail(), body('password').isLength({min: 5}), (req, res) => {
     
     console.log(validationResult(req));
 

@@ -3,6 +3,9 @@
 <div>
     <form method="post">
         <h2>Register</h2>
+        {{#if errors}}
+        <p>{{errors.message}}</p>
+        {{/if}}
         <label>Email: <input type="text" name="email" id="email"></label>
         <label>Passworf: <input type="password" name="password" id="password"></label>
         <label>Repeat: <input type="password" name="repass" id="repass"></label>

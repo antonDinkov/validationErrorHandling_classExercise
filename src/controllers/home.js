@@ -9,10 +9,17 @@ router.get('/', (req, res) => {
     res.render('home');
 });
 
-router.post('/', body('email').isEmail().withMessage('Invalid email'), body('password').isLength({min: 5}).withMessage('Min 5 char required'),  (req, res) => {
+router.post('/',
+    body('email').isEmail().withMessage('Invalid email'),
+    body('password').isLength({min: 5}).withMessage('Min 5 char required'), 
+    (req, res) => {
     
-    console.log(validationResult(req));
+    const { errors } = validationResult(req);
 
+    if (errors.length > 0) {
+        res.render('home', { errors: { message: 'Invalid input' }});
+        return;
+    }
     res.redirect('/');
 });
 

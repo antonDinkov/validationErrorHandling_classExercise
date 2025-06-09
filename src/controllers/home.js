@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     res.render('home');
 });
 
-router.post('/', body('email').isEmail(), body('password').isLength({min: 5}), (req, res) => {
+router.post('/', body('email').isEmail().withMessage('Invalid email'), body('password').isLength({min: 5}).withMessage('Min 5 char required'),  (req, res) => {
     
     console.log(validationResult(req));
 

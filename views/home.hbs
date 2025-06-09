@@ -11,9 +11,9 @@
                 <p>{{this}}</p>
             {{/each}}
         {{/if}}
-        <label {{#if errors.email}}class="error"{{/if}}>Email: <input type="text" name="email" id="email"></label>
-        <label {{#if errors.password}}class="error"{{/if}}>Passworf: <input type="password" name="password" id="password"></label>
-        <label {{#if errors.repass}}class="error"{{/if}}>Repeat: <input type="password" name="repass" id="repass"></label>
+        <label {{#if errors.email}}class="error"{{/if}}>Email: <input type="text" name="email" id="email" {{#if data.email}}value="{{data.email}}"{{/if}}></label>
+        <label {{#if errors.password}}class="error"{{/if}}>Passworf: <input type="password" name="password" id="password" {{#if data.password}}value="{{data.password}}"{{/if}}></label>
+        <label {{#if errors.repass}}class="error"{{/if}}>Repeat: <input type="password" name="repass" id="repass"{{#if data.repass}}value="{{data.repass}}"{{/if}}></label>
         <input type="submit" value="Register">
     </form>
 

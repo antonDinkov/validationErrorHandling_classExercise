@@ -17,11 +17,10 @@ router.post('/',
     const result = validationResult(req);
     console.log(result);
     
-    const errors = result.errors.map(e => e.msg);
-    console.log(errors);
+    const errors = Object.fromEntries(result.errors.map(e => [e.path, e.msg]));
     
 
-    if (errors.length > 0) {
+    if (result.errors.length > 0) {
         res.render('home', { errors });
         return;
     }

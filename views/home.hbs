@@ -4,7 +4,9 @@
     <form method="post">
         <h2>Register</h2>
         {{#if errors}}
-        <p>{{errors.message}}</p>
+            {{#each errors}}
+                <p>{{this}}</p>
+            {{/each}}
         {{/if}}
         <label>Email: <input type="text" name="email" id="email"></label>
         <label>Passworf: <input type="password" name="password" id="password"></label>

@@ -1,0 +1,20 @@
+{
+  "name": "validationerrorhandling_classexercise",
+  "version": "1.0.0",
+  "description": "express validator",
+  "main": "index.js",
+  "scripts": {
+    "debug": "nodemon ./src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.3",
+    "express-validator": "^7.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/',
-    body('email').trim().isEmail().withMessage('Invalid email'),
+    body('email').trim().isEmail().withMessage('Invalid email').bail(), //bail прекратяв а всичко останало ако има грешка тук
     body('password').trim().isLength({min: 5}).withMessage('Min 5 char required'), //trim-a винаги преди проверката за дължина за да не се броят спейсовете
     body('repass').trim().custom((value, { req }) => {
         return value == req.body.password;
@@ -24,7 +24,7 @@ router.post('/',
     
 
     if (result.errors.length > 0) {
-        res.render('home', { data: req.body, errors });
+        res.render('home', { data: req.body,   errors });
         return;
     }
     res.redirect('/');
